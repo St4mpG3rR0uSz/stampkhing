@@ -1,24 +1,24 @@
 <!DOCTYPE html>
 <html lang="th">
   <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Redirect to Stamp's Girlfriend Instagram</title>
     <script>
       const username = "siwaty._.nn";
       const appUrl = "instagram://user?username=" + username;
       const webUrl = "https://www.instagram.com/" + username + "/";
+      const backUrl = "https://stampkhing.love/mygirlissocute"; // 👈 หน้าเว็บที่อยากให้ย้อนกลับไป
 
-      let opened = false;
+      // เปลี่ยน URL ปัจจุบันเป็น /ismygirlcute (โดยไม่ reload)
+      window.history.replaceState({}, "", backUrl);
+
       const now = Date.now();
-
-      // พยายามเปิดแอป
       window.location.href = appUrl;
 
-      // ถ้าเปิดแอปไม่ได้ (ไม่เปลี่ยนแท็บใน 1 วิ) → เปิดเว็บแทน
       setTimeout(() => {
         if (Date.now() - now < 1200) {
-          window.location.href = webUrl;
+          window.location.replace(webUrl);
         }
       }, 1000);
     </script>
@@ -39,6 +39,6 @@
     </style>
   </head>
   <body>
-    <p>กำลังพาคุณไปที่ Instagram ของ <strong>แฟนแสตมป์</strong>...</p>
+    <p>กำลังพาคุณไปที่ Instagram ของ <strong>@siwaty._.nn</strong>...</p>
   </body>
 </html>
