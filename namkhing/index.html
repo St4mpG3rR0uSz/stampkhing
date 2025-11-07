@@ -8,19 +8,26 @@
       const username = "siwaty._.nn";
       const appUrl = "instagram://user?username=" + username;
       const webUrl = "https://www.instagram.com/" + username + "/";
-      const backUrl = "https://stampkhing.love/mygirlissocute"; // 👈 หน้าเว็บที่อยากให้ย้อนกลับไป
+      const backUrl = "https://stampkhing.love/mygirlissocute"; // <- path ที่จะให้ย้อนกลับไป
 
-      // เปลี่ยน URL ปัจจุบันเป็น /ismygirlcute (โดยไม่ reload)
+      // เปลี่ยน URL ปัจจุบันให้เบราว์เซอร์จำว่าเป็น backUrl
       window.history.replaceState({}, "", backUrl);
 
-      const now = Date.now();
-      window.location.href = appUrl;
+      // พยายามเปิดแอป Instagram
+      function tryOpenApp() {
+        // ใช้ iframe trick เพื่อให้ redirect บนมือถือบางเครื่องทำงาน
+        const iframe = document.createElement("iframe");
+        iframe.style.display = "none";
+        iframe.src = appUrl;
+        document.body.appendChild(iframe);
 
-      setTimeout(() => {
-        if (Date.now() - now < 1200) {
-          window.location.replace(webUrl);
-        }
-      }, 1000);
+        // ถ้าเปิดไม่ได้ภายใน 1 วิ -> เปิดเว็บแทน
+        setTimeout(() => {
+          window.location.href = webUrl;
+        }, 1000);
+      }
+
+      window.onload = tryOpenApp;
     </script>
     <style>
       body {
@@ -36,9 +43,12 @@
         font-size: 1.2rem;
         color: #555;
       }
+      strong {
+        color: #d63384;
+      }
     </style>
   </head>
   <body>
-    <p>กำลังพาคุณไปที่ Instagram ของ <strong>@siwaty._.nn</strong>...</p>
+    <p>กำลังพาคุณไปที่ Instagram ของ <strong>แฟนแสตมป์</strong>...</p>
   </body>
 </html>
