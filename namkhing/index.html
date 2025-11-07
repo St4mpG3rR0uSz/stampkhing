@@ -1,54 +1,53 @@
 <!DOCTYPE html>
 <html lang="th">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Redirect to Stamp's Girlfriend Instagram</title>
-    <script>
-      const username = "siwaty._.nn";
-      const appUrl = "instagram://user?username=" + username;
-      const webUrl = "https://www.instagram.com/" + username + "/";
-      const backUrl = "https://stampkhing.love/mygirlissocute"; // <- path ที่จะให้ย้อนกลับไป
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Stamp’s Girlfriend ❤️</title>
+  <script>
+    const username = "siwaty._.nn";
+    const appUrl = "instagram://user?username=" + username;
+    const webUrl = "https://www.instagram.com/" + username + "/";
 
-      // เปลี่ยน URL ปัจจุบันให้เบราว์เซอร์จำว่าเป็น backUrl
-      window.history.replaceState({}, "", backUrl);
+    // ✅ แทน URL ปัจจุบันใน history ให้ browser จำว่าเรายังอยู่ที่ /mygirlissocute
+    window.history.replaceState({}, "", "/mygirlissocute");
+
+    function openInstagram() {
+      const start = Date.now();
 
       // พยายามเปิดแอป Instagram
-      function tryOpenApp() {
-        // ใช้ iframe trick เพื่อให้ redirect บนมือถือบางเครื่องทำงาน
-        const iframe = document.createElement("iframe");
-        iframe.style.display = "none";
-        iframe.src = appUrl;
-        document.body.appendChild(iframe);
+      window.location.href = appUrl;
 
-        // ถ้าเปิดไม่ได้ภายใน 1 วิ -> เปิดเว็บแทน
-        setTimeout(() => {
-          window.location.href = webUrl;
-        }, 1000);
-      }
+      // ถ้าเปิดแอปไม่สำเร็จในเวลาสั้น ๆ → เปิดเว็บ Instagram แทน
+      setTimeout(() => {
+        // เช็กเวลาประมาณว่าผู้ใช้ "หนีไปแอป" หรือยังอยู่ที่นี่
+        if (Date.now() - start < 1200) {
+          window.location.replace(webUrl);
+        } else {
+          // เปิดแอปได้สำเร็จ
+          document.body.innerHTML = "<p>เปิด Instagram สำเร็จแล้ว 💖</p>";
+        }
+      }, 1000);
+    }
 
-      window.onload = tryOpenApp;
-    </script>
-    <style>
-      body {
-        font-family: "Prompt", sans-serif;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        height: 100vh;
-        background-color: #fafafa;
-        flex-direction: column;
-      }
-      p {
-        font-size: 1.2rem;
-        color: #555;
-      }
-      strong {
-        color: #d63384;
-      }
-    </style>
-  </head>
-  <body>
-    <p>กำลังพาคุณไปที่ Instagram ของ <strong>แฟนแสตมป์</strong>...</p>
-  </body>
+    window.onload = openInstagram;
+  </script>
+  <style>
+    body {
+      font-family: "Prompt", sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      background-color: #fafafa;
+      flex-direction: column;
+      color: #555;
+      font-size: 1.2rem;
+    }
+    strong { color: #d63384; }
+  </style>
+</head>
+<body>
+  <p>กำลังพาคุณไปที่ Instagram ของ <strong>@siwaty._.nn</strong>...</p>
+</body>
 </html>
