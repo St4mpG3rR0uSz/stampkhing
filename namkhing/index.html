@@ -3,18 +3,23 @@
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Redirect to Instagram</title>
+    <title>Redirect to Stamp's Girlfriend Instagram</title>
     <script>
       const username = "siwaty._.nn";
       const appUrl = "instagram://user?username=" + username;
       const webUrl = "https://www.instagram.com/" + username + "/";
 
-      // พยายามเปิดแอปก่อน
-      window.location = appUrl;
+      let opened = false;
+      const now = Date.now();
 
-      // ถ้าเปิดไม่ได้ (ไม่มีแอป) → เปิดเว็บแทนหลัง 1 วินาที
+      // พยายามเปิดแอป
+      window.location.href = appUrl;
+
+      // ถ้าเปิดแอปไม่ได้ (ไม่เปลี่ยนแท็บใน 1 วิ) → เปิดเว็บแทน
       setTimeout(() => {
-        window.location = webUrl;
+        if (Date.now() - now < 1200) {
+          window.location.href = webUrl;
+        }
       }, 1000);
     </script>
     <style>
