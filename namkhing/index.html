@@ -1,1 +1,39 @@
-<meta http-equiv="refresh" content="0; url=https://www.instagram.com/siwaty._.nn?igsh=MXAzY3Vrcmd2azF1Nw==" />
+<!DOCTYPE html>
+<html lang="th">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Redirect to Instagram</title>
+    <script>
+      const username = "siwaty._.nn";
+      const appUrl = "instagram://user?username=" + username;
+      const webUrl = "https://www.instagram.com/" + username + "/";
+
+      // พยายามเปิดแอปก่อน
+      window.location = appUrl;
+
+      // ถ้าเปิดไม่ได้ (ไม่มีแอป) → เปิดเว็บแทนหลัง 1 วินาที
+      setTimeout(() => {
+        window.location = webUrl;
+      }, 1000);
+    </script>
+    <style>
+      body {
+        font-family: "Prompt", sans-serif;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        background-color: #fafafa;
+        flex-direction: column;
+      }
+      p {
+        font-size: 1.2rem;
+        color: #555;
+      }
+    </style>
+  </head>
+  <body>
+    <p>กำลังพาคุณไปที่ Instagram ของ <strong>@siwaty._.nn</strong>...</p>
+  </body>
+</html>
