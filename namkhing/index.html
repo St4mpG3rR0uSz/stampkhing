@@ -4,16 +4,16 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Stamp’s Girlfriend ❤️</title>
+
+  <!-- ฟอนต์ -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Prompt:wght@400;500;700&display=swap" rel="stylesheet">
+
   <script>
     const username = "siwaty._.nn";
     const appUrl = "instagram://user?username=" + username;
     const webUrl = "https://www.instagram.com/" + username + "/";
-
-    // ✅ แทน URL ปัจจุบันใน history ให้ browser จำว่าเรายังอยู่ที่ /mygirlissocute
-    window.history.replaceState({}, "", "/mygirlissocute");
 
     function openInstagram() {
       const start = Date.now();
@@ -23,30 +23,30 @@
 
       // ถ้าเปิดแอปไม่สำเร็จในเวลาสั้น ๆ → เปิดเว็บ Instagram แทน
       setTimeout(() => {
-        // เช็กเวลาประมาณว่าผู้ใช้ "หนีไปแอป" หรือยังอยู่ที่นี่
         if (Date.now() - start < 1200) {
           window.location.replace(webUrl);
         } else {
-          // เปิดแอปได้สำเร็จ
-          document.body.innerHTML = "<p>เปิด Instagram สำเร็จแล้ว 💖</p>";
+          document.body.innerHTML = "<p>เปิดแอป Instagram สำเร็จแล้ว 💖</p>";
         }
       }, 1000);
     }
 
     window.onload = openInstagram;
   </script>
+
   <style>
     body {
       font-family: 'Prompt', sans-serif;
       display: flex;
       justify-content: center;
       align-items: center;
-      min-height: 100vh; /* ใช้ min-height แทน height */
+      min-height: 100vh;
       background-color: #fafafa;
       flex-direction: column;
       color: #555;
       font-size: 1.2rem;
       text-align: center;
+      margin: 0;
     }
     strong { color: #d63384; }
   </style>
