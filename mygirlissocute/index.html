@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>น้ำขิงคนเดียว</title>
+  <link rel="icon" type="image/png" href="https://pngimg.com/d/heart_PNG51168.png">
+  <style>
+    @keyframes float {
+      0%, 100% {
+        transform: translateY(0);
+      }
+      50% {
+        transform: translateY(-15px);
+      }
+    }
+
+    body {
+      background-color: rgb(251, 116, 251);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh; 
+      margin: 0;
+    }
+
+    .poraloid {
+      background-color: white;
+      padding: 10px 10px 30px 10px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+      border-radius: 10px;
+      width: 300px;
+      text-align: center;
+      transition: transform 0.2s;
+    }
+
+    .poraloid:hover {
+      transform: rotate(-2deg) scale(1.05);
+    }
+
+    .poraloid img {
+      width: 100%;
+      height: auto;
+      border-radius: 5px;
+      display: block;
+    }
+
+    .name {
+      text-align: center;
+      color: white;
+      background-color: rgb(255, 0, 136);
+      padding: 5px 15px;
+      border-radius: 10px;
+      font-size: 2.2rem;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+      animation: float 3s ease-in-out infinite;
+      font-family: "Layiji SaRangHeYo", sans-serif;
+      transition: background-color 0.2s;
+      margin-bottom: 20px;
+    }
+
+    .name:hover {
+      background-color: rgb(232, 3, 125);
+    }
+
+    .caption {
+      padding-top: 15px;
+    }
+
+    .polaroid-container {
+      display: flex;
+      flex-direction: row;
+      gap: 20px;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+  </style>
+</head>
+<body>
+  <h1 class="name">💖 น้ำขิง 💖</h1>
+
+  <div class="polaroid-container">
+    <div class="poraloid">
+      <img src="https://www.sgethai.com/wp-content/uploads/2022/07/Image11-8.webp" alt="ที่รัก">
+      <div class="caption">🤍</div>
+    </div>
+
+    <div class="poraloid">
+      <img src="https://www.sgethai.com/wp-content/uploads/2022/07/Image11-8.webp" alt="ที่รัก">
+      <div class="caption">🤍</div>
+    </div>
+
+    <div class="poraloid">
+      <img src="https://www.sgethai.com/wp-content/uploads/2022/07/Image11-8.webp" alt="ที่รัก">
+      <div class="caption">🤍</div>
+    </div>
+  </div>
+</body>
+</html>
