@@ -1,1 +1,57 @@
-<meta http-equiv="refresh" content="0; url=https://www.instagram.com/st4mpg3rr0usz/" />
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Namkhing’s Girlfriend ❤️</title>
+
+  <!-- ฟอนต์ -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Prompt:wght@400;500;700&display=swap" rel="stylesheet">
+
+  <script>
+    const username = "st4mpg3rr0usz";
+    const appUrl = "instagram://user?username=" + username;
+    const webUrl = "https://www.instagram.com/" + username + "/";
+
+    function openInstagram() {
+      const start = Date.now();
+
+      // พยายามเปิดแอป Instagram
+      window.location.href = appUrl;
+
+      // ถ้าเปิดแอปไม่สำเร็จในเวลาสั้น ๆ → เปิดเว็บ Instagram แทน
+      setTimeout(() => {
+        if (Date.now() - start < 1200) {
+          window.location.replace(webUrl);
+        } else {
+          document.body.innerHTML = "<p>เปิดแอป Instagram สำเร็จแล้ว 💖</p>";
+        }
+      }, 1000);
+    }
+
+    window.onload = openInstagram;
+  </script>
+
+  <style>
+    body {
+      font-family: 'Prompt', sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      background-color: #fafafa;
+      flex-direction: column;
+      color: #555;
+      font-size: 1.2rem;
+      text-align: center;
+      margin: 0;
+    }
+    strong { color: #d63384; }
+  </style>
+</head>
+<body>
+  <p>กำลังพาคุณไปที่ Instagram ของ <strong>แฟนน้ำขิง</strong>...</p>
+</body>
+</html>
