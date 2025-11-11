@@ -106,21 +106,23 @@
 
 <h1 class="name">💖 น้ำขิง 💖<br>น่ารักมากก</h1>
 
+<!-- ปุ่ม IG น้ำขิง -->
 <a href="https://www.instagram.com/siwaty._.nn/" class="button" id="ig1">
   <img src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png" class="ig-logo" alt="Instagram">
   น้ำขิง <strong>แฟนแสตมป์</strong>
 </a>
 
+<!-- ปุ่ม IG แสตมป์ -->
 <a href="https://www.instagram.com/st4mpg3rr0usz/" class="button" id="ig2">
   <img src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png" class="ig-logo" alt="Instagram">
   แสตมป์ <strong>แฟนน้ำขิง</strong>
 </a>
 
 <script>
+// Heart falling
 const container = document.querySelector('.hearts-bg');
 const emojis = ['❤️','💖','💕','💘','💞'];
 const total = 25;
-
 function createHeart(){
   const heart=document.createElement('div');
   heart.className='heart';
@@ -137,25 +139,29 @@ function createHeart(){
 }
 setInterval(()=>{for(let i=0;i<total/5;i++){createHeart();}},300);
 
-// Function to open IG app on mobile, fallback to web
-function openIG(appUrl, webUrl){
-  const now = new Date().getTime();
+// Multi-click safe IG opener
+function openIGMulti(appUrl, webUrl){
+  // สร้าง iframe เพื่อเรียก IG app
+  const iframe=document.createElement('iframe');
+  iframe.style.display='none';
+  iframe.src=appUrl;
+  document.body.appendChild(iframe);
+
+  // fallback หลัง 1.5 วินาที เปิดเว็บใน tab ใหม่
   setTimeout(()=>{
-    if(new Date().getTime() - now < 2000){
-      window.location = webUrl; // fallback to web
-    }
-  }, 1500);
-  window.location = appUrl;
+    window.open(webUrl,'_blank');
+    document.body.removeChild(iframe);
+  },1500);
 }
 
 // Attach to buttons
 document.getElementById('ig1').addEventListener('click', function(e){
   e.preventDefault();
-  openIG('instagram://user?username=siwaty._.nn','https://www.instagram.com/siwaty._.nn/');
+  openIGMulti('instagram://user?username=siwaty._.nn','https://www.instagram.com/siwaty._.nn/');
 });
 document.getElementById('ig2').addEventListener('click', function(e){
   e.preventDefault();
-  openIG('instagram://user?username=st4mpg3rr0usz','https://www.instagram.com/st4mpg3rr0usz/');
+  openIGMulti('instagram://user?username=st4mpg3rr0usz','https://www.instagram.com/st4mpg3rr0usz/');
 });
 </script>
 
