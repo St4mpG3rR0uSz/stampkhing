@@ -1,163 +1,163 @@
 <!DOCTYPE html>
 <html lang="th">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>น้ำขิงคนเดียว</title>
-  <style>
-    @keyframes float {
-      0%, 100% { transform: translateY(0); }
-      50% { transform: translateY(-15px); }
-    }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>น้ำขิงคนเดียว</title>
+<style>
+  @keyframes float {
+    0%,100%{transform:translateY(0);}
+    50%{transform:translateY(-15px);}
+  }
 
-    @font-face {
-      font-family: 'Layiji SaRangHeYo';
-      src: url('LayijiSarangheyo.ttf') format('truetype');
-    }
+  @font-face {
+    font-family:'Layiji SaRangHeYo';
+    src:url('LayijiSarangheyo.ttf') format('truetype');
+  }
 
-    body {
-      background: linear-gradient(180deg, #ffb4ff 0%, #ff78c8 100%);
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      min-height: 100vh;
-      margin: 0;
-      overflow: hidden;
-      position: relative;
-    }
+  body {
+    background: linear-gradient(180deg, #ffb4ff 0%, #ff78c8 100%);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin:0;
+    overflow:hidden;
+    position:relative;
+  }
 
-    .name {
-      text-align: center;
-      color: white;
-      background-color: rgb(255, 0, 136);
-      padding: 5px 15px;
-      border-radius: 10px;
-      font-size: 2.2rem;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
-      animation: float 3s ease-in-out infinite;
-      font-family: "Layiji SaRangHeYo", sans-serif;
-      transition: background-color 0.2s;
-      margin-bottom: 20px;
-      z-index: 1;
-    }
+  .name {
+    text-align:center;
+    color:white;
+    background-color:rgb(255,0,136);
+    padding:5px 15px;
+    border-radius:10px;
+    font-size:2.2rem;
+    box-shadow:0 4px 10px rgba(0,0,0,0.2);
+    animation: float 3s ease-in-out infinite;
+    font-family:"Layiji SaRangHeYo", sans-serif;
+    transition:background-color 0.2s;
+    margin-bottom:20px;
+    z-index:1;
+  }
 
-    .name:hover {
-      background-color: rgb(232, 3, 125);
-    }
+  .name:hover { background-color:rgb(232,3,125); }
 
-    .button {
-      text-decoration: none;
-      text-align: center;
-      color: white;
-      background-color: rgb(255, 49, 159);
-      padding: 5px 15px;
-      border-radius: 10px;
-      font-size: 2.2rem;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
-      font-family: "Layiji SaRangHeYo", sans-serif;
-      margin-bottom: 20px;
-      z-index: 1;
-      transition: background-color 0.2s, transform 0.2s;
-    }
-    .button:hover {
-      background-color: rgb(253, 8, 139);
-      transform: scale(1.05);
-    }
+  .button {
+    text-decoration:none;
+    display:inline-flex;
+    align-items:center;
+    gap:10px;
+    color:white;
+    background-color:rgb(255,49,159);
+    padding:10px 20px;
+    border-radius:10px;
+    font-size:2.2rem;
+    box-shadow:0 4px 10px rgba(0,0,0,0.2);
+    font-family:"Layiji SaRangHeYo", sans-serif;
+    margin-bottom:20px;
+    z-index:1;
+    transition:background-color 0.2s, transform 0.2s;
+  }
+  .button:hover {
+    background-color:rgb(253,8,139);
+    transform:scale(1.05);
+  }
 
+  .ig-logo {
+    width:32px;
+    height:32px;
+    vertical-align:middle;
+    display:inline-block;
+  }
 
-    strong { color: rgb(158, 5, 5); }
-    h2, h3 { margin: -10px; }
+  strong { color: rgb(158,5,5); }
+  h2,h3 { margin:-10px; }
 
-    /* Heart rain area */
-    .hearts-bg {
-      position: fixed;
-      inset: 0;
-      overflow: hidden;
-      pointer-events: none;
-      z-index: 0;
-    }
+  .hearts-bg {
+    position:fixed;
+    inset:0;
+    overflow:hidden;
+    pointer-events:none;
+    z-index:0;
+  }
 
-    .heart {
-      position: absolute;
-      top: -10vh; /* เริ่มนอกขอบบน */
-      color: #ff1e90;
-      opacity: 0;
-      font-size: 24px;
-      animation: fall linear forwards;
-    }
+  .heart {
+    position:absolute;
+    top:-10vh;
+    color:#ff1e90;
+    opacity:0;
+    font-size:24px;
+    animation:fall linear forwards;
+  }
 
-    @keyframes fall {
-      0% {
-        transform: translateY(-10vh);
-        opacity: 0;
-      }
-      10% {
-        opacity: 0.9;
-      }
-      90% {
-        opacity: 0.1;
-      }
-      100% {
-        transform: translateY(110vh);
-        opacity: 0;
-      }
-    }
-
-    img {
-       vertical-align: middle; /* ทำให้ตรงกลางกับข้อความ */
-    }
-    
-  </style>
+  @keyframes fall {
+    0% {transform:translateY(-10vh); opacity:0;}
+    10% {opacity:0.9;}
+    90% {opacity:0.1;}
+    100% {transform:translateY(110vh); opacity:0;}
+  }
+</style>
 </head>
 <body>
-  <div class="hearts-bg" aria-hidden="true"></div>
 
-  <h1 class="name">💖 น้ำขิง 💖<br>น่ารักมากก</h1>
-  <a href="https://www.instagram.com/siwaty._.nn/" target="_blank" class="button"><img src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png" 
-       alt="Instagram" width="32" height="32" class="ig-logo"><h2"> น้ำขิง <strong>แฟนแสตมป์</strong></h2></a>
-  <a href="https://www.instagram.com/st4mpg3rr0usz/" target="_blank" class="button"><img src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png" 
-       alt="Instagram" width="32" height="32" class="ig-logo"><h3"> แสตมป์ <strong>แฟนน้ำขิง</strong></h3></a>
+<div class="hearts-bg"></div>
 
-  <script>
-    const container = document.querySelector('.hearts-bg');
-    const emojis = ['❤️', '💖', '💕', '💘', '💞'];
-    const total = 25; // จำนวนหัวใจต่อรอบ
+<h1 class="name">💖 น้ำขิง 💖<br>น่ารักมากก</h1>
 
-    function createHeart() {
-      const heart = document.createElement('div');
-      heart.className = 'heart';
-      heart.textContent = emojis[Math.floor(Math.random() * emojis.length)];
-      
-      // เริ่มแบบสุ่มแนวนอน
-      heart.style.left = Math.random() * 100 + 'vw';
-      
-      // ขนาดสุ่ม
-      const size = Math.random() * 20 + 20;
-      heart.style.fontSize = size + 'px';
-      
-      // ความเร็วสุ่ม
-      const duration = Math.random() * 5 + 5; // 5–10s
-      heart.style.animationDuration = duration + 's';
-      
-      // เริ่มแบบหน่วงเวลา
-      heart.style.animationDelay = Math.random() * 3 + 's';
-      
-      // opacity สุ่ม (ใช้ค่าต่ำสุด 0.5 เพื่อไม่ให้จางเกิน)
-      heart.style.opacity = Math.random() * 0.5 + 0.5;
-      
-      container.appendChild(heart);
-      
-      // ลบหัวใจหลังตกจบ
-      setTimeout(() => heart.remove(), (duration + 3) * 1000);
+<a href="https://www.instagram.com/siwaty._.nn/" class="button" id="ig1">
+  <img src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png" class="ig-logo" alt="Instagram">
+  น้ำขิง <strong>แฟนแสตมป์</strong>
+</a>
+
+<a href="https://www.instagram.com/st4mpg3rr0usz/" class="button" id="ig2">
+  <img src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png" class="ig-logo" alt="Instagram">
+  แสตมป์ <strong>แฟนน้ำขิง</strong>
+</a>
+
+<script>
+const container = document.querySelector('.hearts-bg');
+const emojis = ['❤️','💖','💕','💘','💞'];
+const total = 25;
+
+function createHeart(){
+  const heart=document.createElement('div');
+  heart.className='heart';
+  heart.textContent=emojis[Math.floor(Math.random()*emojis.length)];
+  heart.style.left=Math.random()*100+'vw';
+  const size=Math.random()*20+20;
+  heart.style.fontSize=size+'px';
+  const duration=Math.random()*5+5;
+  heart.style.animationDuration=duration+'s';
+  heart.style.animationDelay=Math.random()*3+'s';
+  heart.style.opacity=Math.random()*0.5+0.5;
+  container.appendChild(heart);
+  setTimeout(()=>heart.remove(),(duration+3)*1000);
+}
+setInterval(()=>{for(let i=0;i<total/5;i++){createHeart();}},300);
+
+// Function to open IG app on mobile, fallback to web
+function openIG(appUrl, webUrl){
+  const now = new Date().getTime();
+  setTimeout(()=>{
+    if(new Date().getTime() - now < 2000){
+      window.location = webUrl; // fallback to web
     }
+  }, 1500);
+  window.location = appUrl;
+}
 
-    // สร้างหัวใจเรื่อย ๆ แบบสายฝน
-    setInterval(() => {
-      for (let i = 0; i < total / 5; i++) {
-        createHeart();
-      }
-    }, 300);
-  </script>
+// Attach to buttons
+document.getElementById('ig1').addEventListener('click', function(e){
+  e.preventDefault();
+  openIG('instagram://user?username=siwaty._.nn','https://www.instagram.com/siwaty._.nn/');
+});
+document.getElementById('ig2').addEventListener('click', function(e){
+  e.preventDefault();
+  openIG('instagram://user?username=st4mpg3rr0usz','https://www.instagram.com/st4mpg3rr0usz/');
+});
+</script>
+
 </body>
 </html>
