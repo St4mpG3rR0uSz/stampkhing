@@ -69,7 +69,6 @@
     strong { color: rgb(158, 5, 5); }
     h2, h3 { margin: -10px; }
 
-    /* Heart rain area */
     .hearts-bg {
       position: fixed;
       inset: 0;
@@ -80,7 +79,7 @@
 
     .heart {
       position: absolute;
-      top: -10vh; /* เริ่มนอกขอบบน */
+      top: -10vh;
       color: #ff1e90;
       opacity: 0;
       font-size: 24px;
@@ -105,7 +104,7 @@
     }
 
     img {
-       vertical-align: middle; /* ทำให้ตรงกลางกับข้อความ */
+       vertical-align: middle;
     }
     
   </style>
@@ -122,37 +121,30 @@
   <script>
     const container = document.querySelector('.hearts-bg');
     const emojis = ['❤️', '💖', '💕', '💘', '💞'];
-    const total = 25; // จำนวนหัวใจต่อรอบ
+    const total = 25;
 
     function createHeart() {
       const heart = document.createElement('div');
       heart.className = 'heart';
       heart.textContent = emojis[Math.floor(Math.random() * emojis.length)];
       
-      // เริ่มแบบสุ่มแนวนอน
       heart.style.left = Math.random() * 100 + 'vw';
       
-      // ขนาดสุ่ม
       const size = Math.random() * 20 + 20;
       heart.style.fontSize = size + 'px';
       
-      // ความเร็วสุ่ม
-      const duration = Math.random() * 5 + 5; // 5–10s
+      const duration = Math.random() * 5 + 5
       heart.style.animationDuration = duration + 's';
       
-      // เริ่มแบบหน่วงเวลา
       heart.style.animationDelay = Math.random() * 3 + 's';
       
-      // opacity สุ่ม (ใช้ค่าต่ำสุด 0.5 เพื่อไม่ให้จางเกิน)
       heart.style.opacity = Math.random() * 0.5 + 0.5;
       
       container.appendChild(heart);
-      
-      // ลบหัวใจหลังตกจบ
+    
       setTimeout(() => heart.remove(), (duration + 3) * 1000);
     }
 
-    // สร้างหัวใจเรื่อย ๆ แบบสายฝน
     setInterval(() => {
       for (let i = 0; i < total / 5; i++) {
         createHeart();
